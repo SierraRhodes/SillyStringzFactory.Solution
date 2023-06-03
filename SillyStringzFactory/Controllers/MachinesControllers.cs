@@ -40,5 +40,12 @@ namespace SillyStringzFactory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+       public ActionResult Details(int id)
+    {
+      Machine thisMachine = _db.Machines
+                          .Include(machine => machine.Engineer)
+                          .FirstOrDefault(machine => machine.MachineId == id);
+      return View(thisMachine);
+    }
   }
 }
