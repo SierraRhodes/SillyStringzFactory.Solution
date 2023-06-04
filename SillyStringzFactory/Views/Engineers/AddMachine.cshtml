@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SillyStringzFactory.Models.Engineer
+
+<h2>Add a machine for this engineer: @Html.DisplayFor(model => model.Name)</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.EngineerId)
+
+    @Html.Label("Select a machine")<br>
+    @Html.DropDownList("MachineId")
+
+    <br><br><input type="submit" value="Save" class="btn btn-dark"/>
+}
