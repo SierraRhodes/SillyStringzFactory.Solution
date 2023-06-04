@@ -33,10 +33,10 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Create(Machine machine)
     {
-      if (machine.EngineerId == 0)
-      {
-        return RedirectToAction("Create");
-      }
+      // if (machine.EngineerId == 0)
+      // {
+      //   return RedirectToAction("Create");
+      // }
       _db.Machines.Add(machine);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -73,7 +73,6 @@ namespace Factory.Controllers
   //   {
   //     Machine thisMachine = _db.Machines
   //                             .Include(machine => machine.EngineerMachines)
-  //                             .ThenInclude(join => join.Machine)
   //                             .FirstOrDefault(machine => machine.MachineId == id);
 
   //     return View(thisMachine);
