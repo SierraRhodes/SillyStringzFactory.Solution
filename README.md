@@ -7,7 +7,7 @@
 ## Technologies Used
 
 * _ASP.Net_
-* _c#_
+* _C#_
 * _HTML_
 * _MySQL_
 
