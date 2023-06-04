@@ -2,13 +2,13 @@ using System.Collections.Generic;
 
 namespace SillyStringzFactory.Models
 {
-  public class Machine
+   public class EngineerMachine
   {
-    public int MachineId { get; set; }
-    public string Name { get; set; }
+    public int EngineerMachineId { get; set; }
     public int EngineerId { get; set; }
     public Engineer Engineer { get; set; }
-    public List<EngineerMachine> EngineerMachines { get; }
+    public int MachineId { get; set; }
+    public Machine Machine { get; set; }
   }
   
 }

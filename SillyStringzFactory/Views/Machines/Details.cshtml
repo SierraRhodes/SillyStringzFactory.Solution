@@ -6,10 +6,22 @@
 }
 
 <h2>Machine Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
-<h3>@Html.DisplayNameFor(model => model.Engineer): @Html.DisplayFor(model => model.Engineer.Name)<h3>
-
+    @if (@Model.EngineerMachines.Count == 0)
+    {
+      <p>This machine has no engineers that are licensed to fix it!</p>
+    }
+    else
+    {
+      <h6>This machine has these licensed engineers to fix it:</h6>
+      <ul>
+        @foreach (EngineerMachine join in Model.EngineerMachines)
+        {
+          <li>@Html.ActionLink($"{@join.Engineer.Name}", "Details", "Engineers", new {id = @join.Engineer.EngineerId})</li>
+        }
+      </ul>
+      <br>
+    }
+    <p>@Html.ActionLink("Add an engineer!", "AddEngineer", new { id = Model.MachineId})</p>
 <p>@Html.ActionLink("Edit machine", "Edit", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Delete machine", "Delete", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
