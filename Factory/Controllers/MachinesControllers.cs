@@ -19,7 +19,7 @@ namespace Factory.Controllers
 
   public ActionResult Index()
 {
-  List<Machine> model = _db.Machines.Include(machine => machine.Engineer).ToList(); 
+  List<Machine> model = _db.Machines.ToList(); 
   ViewBag.PageTitle = "View All Machines";
   return View(model);
 }
@@ -33,10 +33,6 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Create(Machine machine)
     {
-      // if (machine.EngineerId == 0)
-      // {
-      //   return RedirectToAction("Create");
-      // }
       _db.Machines.Add(machine);
       _db.SaveChanges();
       return RedirectToAction("Index");
