@@ -65,23 +65,24 @@ namespace Factory.Controllers
       }
       return RedirectToAction("Details", new { id = machine.MachineId });
     }
-  //      public ActionResult Edit(int id)
-  //   {
-  //     Machine thisMachine = _db.Machines
-  //                             .Include(machine => machine.EngineerMachines)
-  //                             .FirstOrDefault(machine => machine.MachineId == id);
+       public ActionResult Edit(int id)
+    {
+      Machine thisMachine = _db.Machines
+                              .Include(machine => machine.EngineerMachines)
+                              .ThenInclude(join => join.Engineer)
+                              .FirstOrDefault(machine => machine.MachineId == id);
 
-  //     return View(thisMachine);
-  //   }
+      return View(thisMachine);
+    }
 
 
-  //  [HttpPost]
-  //  public ActionResult Edit(Machine machine)
-  // {
-  //   _db.Machines.Update(machine);
-  //   _db.SaveChanges();
-  //   return RedirectToAction("Index");
-  // }
+   [HttpPost]
+   public ActionResult Edit(Machine machine)
+  {
+    _db.Machines.Update(machine);
+    _db.SaveChanges();
+    return RedirectToAction("Index");
+  }
       public ActionResult Delete(int id)
     {
       Machine thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
