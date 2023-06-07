@@ -2,7 +2,7 @@
 
 #### By _**Sierra Rhodes**_
 
-#### _A simple applicaation that allows a user to create engineers and machines and assign one to the other. _
+#### A simple applicaation that allows a user to create engineers and machines and assign one to the other.
 
 ## Technologies Used
 
@@ -21,8 +21,6 @@ _This simple application allows users to create, edit, delete, and look at detai
 * _clone the repository_
 * _Navigate to 'Factory.Solution' directory in your terminal_
 * _Open the project in any text editor/ VSCode preferably_
-* _if you have not done so already create a .gitignore file_
-* _Add bin, obj, and appsettings.json to the file_
 * _Commit changes to your respository_
 * _Create a new file called appsettings.json_
 * _Add the following code to the appsettings.json file you created:
